@@ -1,0 +1,88 @@
+body{
+	/*background-image: url("leaf.jpg");*/
+	background-color: #253847;
+    background-repeat: no-repeat;
+    
+
+}
+
+#msgarea
+{
+    border:1px solid red;
+    width:400px;
+    height:200px;
+    
+    
+}
+
+#login
+{
+    margin-left: auto;
+    margin-right:auto;
+    border:0px solid black;
+    border-radius: 2px;
+    background-color:rgba(227,108,104,0.8);
+    width:800px;
+    height:500px;
+    margin-top:150px;
+    
+}
+
+
+
+.insidediv{
+    margin-left:10px;
+    border:1px solid black;
+    margin-top:10px;
+    
+}
+
+
+
+
+
+.welcome{color:black;
+    font-family: "Comic Sans MS", cursive, sans-serif; 
+    font-size:15px; border:1px solid black;
+    width:200px; margin-left:75px; height:100px;}
+
+.tagline{font-size:15px;}
+
+
+
+ul li{color:white; font-size:17px; font-family:"Comic Sans MS", cursive, sans-serif;}
+
+.logtext{border:0px solid black;height:50px;
+    margin-top:35px;color: rgb(227,108,104); 
+    font-size: 22px;font-weight:600; 
+    font-family:"Calibri";width:150px;
+    margin-left: 40px;}
+
+.loginfo{width:365px;height:250px;
+    border:0px solid black;
+    margin-left: 40px}
+    
+
+
+.button{border:0px solid black; 
+    background-color:#253847;
+    color:white; width:100px; height:50px;
+    cursor:grab;
+}
+
+
+
+#nouser1{color:red; visibility:hidden;
+    
+}
+
+.err{width:450px;height:50px; border:none;scroll:no;
+    
+}
+
+.welcomeuser{border:0px solid black;height:50px;
+    margin-top:35px;color: rgb(227,108,104); 
+    font-size: 22px;font-weight:600; 
+    font-family:"Calibri";width:390px;
+    margin-left: 40px;}
+
