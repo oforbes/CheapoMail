@@ -1,0 +1,316 @@
+<html>
+    
+    <head>
+        <title>CheapoMail | Login</title>
+       <!--<link type="text/css" rel="stylesheet" href="style.css"/>-->
+        <!--<link type="text/css" rel="stylesheet" href="newstyle.css"/>-->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="general.js"></script>
+
+        
+
+        
+        
+        
+        
+      <?php
+
+        session_start();
+        $username=$_POST['username'];
+        $password=$_POST['password'];
+        ?>
+
+
+        
+    </head>
+    
+<body>
+
+
+
+   <div id="container">
+    <div id="login">
+        
+        
+        <div class="infoo">
+            <img src="email-256.png" width="100px" class="logo"/><br>
+            
+            <p class="welmess">Welcome<br>Let's talk.....to everyone!</p>
+    
+        <div class="info">
+        
+            <ul>
+                <li>Send and receive messages</li><br>
+                <li>Get instant alerts</li><br>
+                <li>reply to your messages</li><br>
+            
+            </ul>
+        
+        
+        </div>
+            
+            
+        </div>
+        
+        
+        <div id="loginover">
+        
+            <div class="logtext">Login</div><br><br>
+        
+            <div class="loginfo">
+                <form action="main.php" method='POST' name="frm">
+                    
+                    <input type="text" class="bxes" name="username" placeholder="username" value="<?php echo $username;?>"/><br><br><br>
+                    <input type="Password" class="bxes" name="password" placeholder="Password"/><br><br><br>
+                    <input type="submit"  value="login" name="send" class="button"/>
+                    
+                  <!-- <iframe name="framey" href="connection.php" class="err"></iframe>-->
+                
+                </form>
+                
+                
+                    
+    <?php
+    if ($username && $password)
+        {
+            $connect=mysql_connect("127.0.0.1","oforbes_","") or die ("Fail");
+            mysql_select_db("c9") or die ("couldnt find db");
+            
+            $query=mysql_query("SELECT * FROM User WHERE username='$username'");
+            $numrows=mysql_num_rows($query);
+            
+            if ($numrows!=0)
+            {
+                //login 
+                while($row=mysql_fetch_assoc($query))
+                {
+                    $dbusername=$row['username'];
+                    $dbpassword=$row['password'];
+                    $dbfname=$row['firstname'];
+                    $dblname=$row['lastname'];
+                    
+                }
+                //check to see if they match!
+                if ($username==$dbusername && $password==$dbpassword)
+                {
+                    header( "Location:login1.php" );
+                   //echo gh();
+                   //echo '<script type="text/javascript">gh();</script>';
+                  
+                   $_SESSION['username']=$dbusername;
+                   $_SESSION['firstname']=$dbfname;
+                   $_SESSION['lastname']=$dblname;
+                   
+                }
+                else
+                {
+                    
+                    print "Incorrect password";
+                }
+               
+                
+            }
+            else
+                {
+                    
+                   
+                    print "User doesnt exist";
+                    
+                   
+                }
+            
+            
+            
+        }
+        else
+            print "Please enter username and password";
+       
+        
+        ?>
+                    
+  
+            </div>
+      
+        </div><br>
+        
+        <!--
+        Welcome<br>Let's talk.....to everyone!
+    
+        <div class="info">
+        
+            <ul>
+                <li>Send and receive messages</li><br>
+                <li>Get instant alerts</li><br>
+                <li>reply to your messages</li><br>
+            
+            </ul>
+        
+        
+        </div>-->
+    </div>
+    
+   
+
+</div>
+
+ <style>
+            
+            body{
+	/*background-image: url("leaf.jpg");*/
+	background-color: #253847;
+    background-repeat: no-repeat;
+    
+
+}
+
+#msgarea
+{
+    border:1px solid red;
+    width:400px;
+    height:200px;
+    
+    
+}
+
+#login
+{
+    margin-left: auto;
+    margin-right:auto;
+    border:0px solid black;
+    border-radius: 2px;
+    background-color:rgba(227,108,104,0.8);
+    width:800px;
+    height:500px;
+    margin-top:150px;
+    
+}
+
+
+
+.insidediv{
+    margin-left:10px;
+    border:1px solid black;
+    margin-top:10px;
+    
+}
+
+
+
+
+
+.welcome{color:black;
+    font-family: "Comic Sans MS", cursive, sans-serif; 
+    font-size:15px; border:1px solid black;
+    width:200px; margin-left:75px; height:100px;}
+
+.tagline{font-size:15px;}
+
+
+
+ul li{color:white; font-size:17px; font-family:"Comic Sans MS", cursive, sans-serif;}
+
+.logtext{border:0px solid black;height:50px;
+    margin-top:35px;color: rgb(227,108,104); 
+    font-size: 22px;font-weight:600; 
+    font-family:"Calibri";width:150px;
+    margin-left: 40px;}
+
+.loginfo{width:365px;height:250px;
+    border:0px solid black;
+    margin-left: 40px}
+    
+
+
+.button{border:0px solid black; 
+    background-color:#253847;
+    color:white; width:100px; height:50px;
+    cursor:grab;
+}
+
+
+
+#nouser1{color:red; visibility:hidden;
+    
+}
+
+.err{width:450px;height:50px; border:none;scroll:no;
+    
+}
+
+.welcomeuser{border:0px solid black;height:50px;
+    margin-top:35px;color: rgb(227,108,104); 
+    font-size: 22px;font-weight:600; 
+    font-family:"Calibri";width:390px;
+    margin-left: 40px;}
+
+
+        
+        
+        
+        .sidebar{border:0px solid black; height:45px; background-color: #253847; width:300px;text-align:center; 
+        line-height:35px;color:white;font-size:20px;font-family:sans-serif;}
+        
+        .sidebar:hover{background-color: white;color:black;}
+        
+        .infoo{float:left;border:0px solid black; width:270px; margin-top:0px; height:450px;margin-left:39px;}
+
+.logo{margin-top:38px;margin-left:80px}
+
+.info{border:0px solid black;width:210px;
+    margin-left:25px;height:180px;
+    margin-top:40px}
+    
+.welmess{width:230px; height:70px; border:0px solid black; margin-left:25px; font-family:"Comic Sans MS", cursive, sans-serif; color:white;}
+
+#container{width:1400px; height:700px; border:0px solid red; margin-left:auto; margin-right:auto;
+}
+
+#loginover{float:right;
+    margin-right:0px;
+    border:0px solid black;
+    background-color: white;
+    width:450px;
+    height:500px;
+    margin-top:0px;
+    background-color:white;
+    
+}
+
+.bxes{
+    width:365px;
+    height:30px;
+    border-bottom:1px solid black;
+    border-top:0px solid black;
+    border-left:0px solid black;
+    border-right:0px solid black;
+}
+
+
+
+#loginover2{float:right;
+    margin-right:0px;
+    border:0px solid black;
+    background-color: white;
+    width:450px;
+    height:500px;
+    margin-top:0px;
+    background-color:white;
+    
+}
+
+.navigate{border:0px solid black;width:298px; float:left;
+    margin-left:0px;height:450px;
+    margin-top:0px}
+        
+        
+            /* .select{height:50px; background-color:#253847;}
+            .select:hover{height:50px; background-color:white;}
+            */
+            
+        </style>
+
+</body>
+ 
+        
+</html>
