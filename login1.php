@@ -237,7 +237,7 @@ ul li{color:white; font-size:17px; font-family:"Comic Sans MS", cursive, sans-se
        <a href="javascript:void(0)" style="text-decoration:none;color:black;" id="compose"><div class="sidebar">Compose</div></a><br>
         <a href="javascript:void(0)" style="text-decoration:none;color:black;" id="inbx"><div class="sidebar">Inbox</div></a><br>
         <a href="javascript:void(0)" style="text-decoration:none;color:black;" id="reguser"><div class="sidebar">Register User</div></a><br>
-        <a href="main.php" style="text-decoration:none;color:black;"><div class="sidebar">Logout<?php session_destroy();?></div></a><br>
+        <a href="main.html" style="text-decoration:none;color:black;"><div class="sidebar">Logout<?php session_destroy();?></div></a><br>
             
         </div>
         
